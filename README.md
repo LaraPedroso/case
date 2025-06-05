@@ -163,6 +163,19 @@ volumes:
     db_data:
 ```
 
+### Script pra facilitar sua vida 😊
+
+```yaml
+    "scripts": {
+        "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+        "prisma:migrate": "prisma migrate dev",
+        "prisma:generate": "prisma generate",
+        "prisma:studio": "prisma studio",
+        "db:start": "docker-compose up -d",
+        "db:stop": "docker-compose down"
+    },
+```
+
 ---
 
 ## Dicas rápidas
