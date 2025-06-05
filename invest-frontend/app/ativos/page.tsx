@@ -15,6 +15,11 @@ import {
 } from "@/components/ui/table";
 import { CircleArrowLeft } from "lucide-react";
 
+interface Ativo {
+    id: string | number;
+    name: string;
+    value: number;
+}
 export default function AtivosPage() {
     const router = useRouter();
 
@@ -63,7 +68,7 @@ export default function AtivosPage() {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {ativos.map((ativo: any) => (
+                            {ativos.map((ativo: Ativo) => (
                                 <TableRow
                                     key={ativo.id}
                                     className="hover:bg-gray-300 transition-colors duration-200"

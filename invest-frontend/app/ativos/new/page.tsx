@@ -26,6 +26,11 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 
+type Client = {
+    id: number | string;
+    name: string;
+};
+
 const assetSchema = z.object({
     name: z.string().min(1, "Nome é obrigatório"),
     value: z.number({ required_error: "O valor é obrigatório" }),
@@ -65,7 +70,7 @@ export default function NewAssetsPage() {
         } catch (error: any) {
             const issues = error.response?.data?.issues;
             if (issues && Array.isArray(issues)) {
-                issues.forEach((issue: any) => {
+                issues.forEach((issue) => {
                     const fieldName = issue.path?.[0];
                     const message = issue.message;
 
@@ -167,7 +172,7 @@ export default function NewAssetsPage() {
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent className="w-full border-sky-950 ">
-                                            {clients.map((client: any) => (
+                                            {clients.map((client: Client) => (
                                                 <SelectItem
                                                     key={client.id}
                                                     value={String(client.id)}
